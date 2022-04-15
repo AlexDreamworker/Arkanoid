@@ -394,8 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blocks:
-  - {fileID: 11400000, guid: e04fc0c02fb1f1245b07f823dfcaa99c, type: 2}
-  - {fileID: 11400000, guid: e3134e4cd878c0541b94318f9194a7bf, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &272319441
 Transform:
   m_ObjectHideFlags: 0

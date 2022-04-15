@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9fd83511293d2c469e5d85f2d3088a0, type: 3}
-  m_Name: BlockGreen
+  m_Name: BlockBlue
   m_EditorClassIdentifier: 
   Prefab: {fileID: 5793121739817562665, guid: 46c6a3d91565dc248bd62970acd06ced, type: 3}
   Sprites:
   - {fileID: -8480322663989752812, guid: 0d0e9c5cfe0e16e459cc2e1a8eda6381, type: 3}
-  - {fileID: 2689354929541425477, guid: 0d0e9c5cfe0e16e459cc2e1a8eda6381, type: 3}
-  - {fileID: 6164509865321047114, guid: 0d0e9c5cfe0e16e459cc2e1a8eda6381, type: 3}
-  BaseColor: {r: 0.29803923, g: 0.81960785, b: 0.21568628, a: 1}
-  Score: 150
+  BaseColor: {r: 0, g: 0.5921569, b: 0.9019608, a: 1}
+  Score: 50

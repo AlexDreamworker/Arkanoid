@@ -13,7 +13,7 @@ namespace Arkanoid
 		private SpriteRenderer _spriteRenderer;
 		private int _life;
 
-		public void SetData(BlockData blockData) 
+		public void SetData(ColoredBlockData blockData) 
 		{
 			_sprites = new List<Sprite>(blockData.Sprites);
 			_score = blockData.Score;

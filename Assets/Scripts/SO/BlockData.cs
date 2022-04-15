@@ -8,9 +8,6 @@ namespace Arkanoid
 	public class BlockData : ScriptableObject
 	{
 		public GameObject Prefab;
-		public List<Sprite> Sprites;
-		public Color BaseColor;
-		public int Score;
 	}
 }
 
