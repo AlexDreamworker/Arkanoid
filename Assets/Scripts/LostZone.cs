@@ -6,9 +6,9 @@ namespace Arkanoid
 {
 	public class LostZone : MonoBehaviour
 	{
-		private void OnCollisionEnter2D(Collision2D other)
+		private void OnCollisionEnter2D(Collision2D collision)
 		{
-			if (other.gameObject.TryGetComponent(out BallMove ball)) 
+			if (collision.gameObject.TryGetComponent(out BallMove ball)) 
 			{
 				Destroy(ball.gameObject);
 			}

@@ -9,7 +9,7 @@ namespace Arkanoid
 		private Rigidbody2D _rigidbody2D;
 		private bool _isActive;
 		private const float Force = 500f;
-		private const float OffsetX = 100f;
+		private float _lastPositionX;
 
 		private void Start()
 		{
@@ -39,10 +39,31 @@ namespace Arkanoid
 
 		private void BallActivate() 
 		{
+			_lastPositionX = transform.position.x;
 			_isActive = true;
 			transform.SetParent(null);
 			_rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-			_rigidbody2D.AddForce(new Vector2(OffsetX, Force));
+			_rigidbody2D.AddForce(Vector2.up * Force);
+		}
+
+		public void MoveCollision(Collision2D collision)
+		{
+			float ballPositionX = transform.position.x;
+
+			if (collision.gameObject.TryGetComponent(out PlayerMove player)) 
+			{
+				if (ballPositionX < _lastPositionX + 0.1f && ballPositionX > _lastPositionX - 0.1f) // движение почти вертикальное
+				{
+					float collisionPointX = collision.contacts[0].point.x; // точка касания
+					_rigidbody2D.velocity = Vector2.zero;
+					float playerCenterPosition = player.gameObject.GetComponent<Transform>().position.x;
+					float difference = playerCenterPosition - collisionPointX; // разница между центром вагонетки и местом касания
+					float direction = collisionPointX < playerCenterPosition ? -1 : 1; // расчёт направления 
+					_rigidbody2D.AddForce(new Vector2(direction * Mathf.Abs(difference * (Force / 2)), Force));
+				}
+			}
+
+			_lastPositionX = ballPositionX;
 		}
 	}
 }
