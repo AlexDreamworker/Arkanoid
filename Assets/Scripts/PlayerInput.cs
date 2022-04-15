@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dreamworker
+namespace Arkanoid
 {
 	public class PlayerInput : MonoBehaviour
 	{
@@ -15,7 +15,7 @@ namespace Dreamworker
 		private void Update()
 		{
 #if UNITY_EDITOR
-			OnMove?.Invoke(Input.GetAxis("Horizontal"));
+			OnMove?.Invoke(Input.GetAxisRaw("Horizontal"));
 #endif
 #if UNITY_ANDROID
 			GetTouchInput();

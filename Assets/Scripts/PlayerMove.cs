@@ -3,24 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dreamworker
+namespace Arkanoid
 {
 	public class PlayerMove : MonoBehaviour
 	{
 		private Rigidbody2D _rigidbody2D;
+		private SpriteRenderer _spriteRenderer;
 
 		private float _moveX = 0f;
 		private float _speed = 15f;
+		private const float BorderPosition = 5f;
 
 		private void Awake()
 		{
 			_rigidbody2D = GetComponent<Rigidbody2D>();
+			_spriteRenderer = GetComponent<SpriteRenderer>();
 		}
 		
 		private void FixedUpdate()
 		{
 			float positionX = _rigidbody2D.position.x + _moveX * _speed * Time.fixedDeltaTime;
-
+			positionX = Mathf.Clamp(positionX, -BorderPosition + (_spriteRenderer.size.x / 2), BorderPosition - (_spriteRenderer.size.x / 2));
 			_rigidbody2D.MovePosition(new Vector2(positionX, _rigidbody2D.position.y));
 		}
 
