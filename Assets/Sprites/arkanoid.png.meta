@@ -52,7 +52,7 @@ TextureImporter:
     second: background3
   - first:
       213: 9079211735607611507
-    second: arkanoid_16
+    second: ufo
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -514,7 +514,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arkanoid_16
+      name: ufo
       rect:
         serializedVersion: 2
         x: 418

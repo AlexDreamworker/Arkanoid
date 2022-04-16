@@ -13,24 +13,17 @@ namespace Arkanoid
 				GameObject game;
 #if UNITY_EDITOR
 				game = PrefabUtility.InstantiatePrefab(gameLevel.Blocks[i].Block.Prefab, parent) as GameObject;
-				if (game.TryGetComponent(out Block block)) 
+				if (game.TryGetComponent(out BaseBlock baseBlock)) 
 				{
-					block.BlockData = gameLevel.Blocks[i].Block;
-					block.SetData(gameLevel.Blocks[i].Block as ColoredBlock);
-				}
-				
-				if (game.TryGetComponent(out OtherBlock other)) 
-				{
-					other.BlockData = gameLevel.Blocks[i].Block;
+					baseBlock.BlockData = gameLevel.Blocks[i].Block;
 				}
 #else
 				game = GameObject.Instantiate(gameLevel.Blocks[i].Block.Prefab, parent);
+#endif
 				if (game.TryGetComponent(out Block block)) 
 				{
-					ColoredBlock coloredBlock = gameLevel.Blocks[i].Block as ColoredBlock;
-					block.SetData(coloredBlock);
-				}
-#endif
+					block.SetData(gameLevel.Blocks[i].Block as ColoredBlock);
+				}				
 				game.transform.position = gameLevel.Blocks[i].Position;
 			}
 		}

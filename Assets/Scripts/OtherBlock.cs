@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace Arkanoid
 {
-	public class OtherBlock : MonoBehaviour
+	public class OtherBlock : BaseBlock
 	{
-#if UNITY_EDITOR
-		public BlockData BlockData;
-#endif
 		[SerializeField] private ParticleSystem _particle = null;
 
 		private void Start()

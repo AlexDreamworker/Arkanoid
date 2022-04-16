@@ -5,17 +5,13 @@ using static UnityEngine.ParticleSystem;
 
 namespace Arkanoid
 {
-	public class Block : MonoBehaviour
+	public class Block : BaseBlock, IDamageable
 	{
 		private static int _count = 0;
 		[SerializeField] private List<Sprite> _sprites;
 		[SerializeField] private int _score;
 		[SerializeField] private SpriteRenderer _spriteRenderer;
 		[SerializeField] private int _life;
-
-#if UNITY_EDITOR
-		public BlockData BlockData;
-#endif
 
 		public void SetData(ColoredBlock blockData) 
 		{
