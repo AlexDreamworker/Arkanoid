@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1744367564142721593}
   - component: {fileID: 1744367564142721592}
   - component: {fileID: 1744367564142721591}
+  - component: {fileID: -2496937699185256033}
   m_Layer: 0
   m_Name: block_immortal
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,11 +97,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.01, y: 0.61}
+    pivot: {x: 0.4950495, y: 0.57377046}
+    oldSize: {x: 1, y: 0.6}
     newSize: {x: 1.01, y: 0.61}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -109,3 +110,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.01, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &-2496937699185256033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744367564142721590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1295359f75e193c4993c56355e9b0ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockData: {fileID: 11400000, guid: eeb1a8d16852b124386aaf6c2e16473e, type: 2}
+  _particle: {fileID: 9085925824398911612, guid: 874571a9994e3404db45d7293b78bcfc, type: 3}

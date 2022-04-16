@@ -1,4 +1,3 @@
-using System.Drawing;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +11,9 @@ namespace Arkanoid
 		private Transform _parent;
 		private EditorData _data;
 		private int _index;
+		private bool _isEnabledEdit;
+		private GameLevel _gameLevel;
+		private SceneEditor _sceneEditor;
 
 		[MenuItem("Window/Level Editor")]
 		public static void Init() 
@@ -31,6 +33,8 @@ namespace Arkanoid
 				if (GUILayout.Button("Load data")) 
 				{
 					_data = (EditorData)AssetDatabase.LoadAssetAtPath("Assets/Editor/Data/EditorData.asset", typeof(EditorData));
+					_sceneEditor = CreateInstance<SceneEditor>();
+					_sceneEditor.SetLevelEditor(this, _parent);
 				}
 			}
 			else 
@@ -44,6 +48,7 @@ namespace Arkanoid
 				GUILayout.Space(5);
 				GUILayout.BeginHorizontal();
 				GUILayout.FlexibleSpace();
+
 				if (GUILayout.Button("<", GUILayout.Width(50), GUILayout.Height(50))) 
 				{
 					_index--;
@@ -54,9 +59,9 @@ namespace Arkanoid
 				}
 
 				//* Получение цвета блока
-				if (_data.BlockDatas[_index].BlockData is ColoredBlockData) 
+				if (_data.BlockDatas[_index].BlockData is ColoredBlock) 
 				{
-					ColoredBlockData coloredBlockData = _data.BlockDatas[_index].BlockData as ColoredBlockData;
+					ColoredBlock coloredBlockData = _data.BlockDatas[_index].BlockData as ColoredBlock;
 					GUI.color = coloredBlockData.BaseColor;
 				}
 				else 
@@ -78,7 +83,55 @@ namespace Arkanoid
 
 				GUILayout.FlexibleSpace();
 				GUILayout.EndHorizontal();
+				GUILayout.Space(30);
+
+				GUI.color = _isEnabledEdit ? Color.red : Color.white;
+				if (GUILayout.Button("Create blocks")) 
+				{
+					_isEnabledEdit = !_isEnabledEdit;
+
+					if(_isEnabledEdit)
+					{
+						SceneView.duringSceneGui += _sceneEditor.OnSceneGUI;
+					}
+					else
+					{
+						SceneView.duringSceneGui -= _sceneEditor.OnSceneGUI;
+					}
+				}
+				GUI.color = Color.white;
+				GUILayout.Space(30);
+
+				_gameLevel = EditorGUILayout.ObjectField(_gameLevel, typeof(GameLevel), false) as GameLevel;
+				GUILayout.Space(10);
+
+				GUILayout.BeginHorizontal();
+				if (GUILayout.Button("Save Level"))
+				{
+					SaveLevel saveLevel = new SaveLevel();
+					_gameLevel.Blocks = saveLevel.GetBlocks();
+					EditorUtility.SetDirty(_gameLevel);
+					Debug.Log("Level Saved");
+				}
+
+				if (GUILayout.Button("Load Level"))
+				{
+					GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("Block");
+					foreach (var item in allBlocks)
+					{
+						DestroyImmediate(item.gameObject);
+					}
+
+					BlockGenerator generator = new BlockGenerator();
+					generator.Generate(_gameLevel, _parent);
+				}
+				GUILayout.EndHorizontal();
 			}
+		}
+
+		public BlockData GetBlock()
+		{
+			return _data.BlockDatas[_index].BlockData;
 		}
 	}
 }

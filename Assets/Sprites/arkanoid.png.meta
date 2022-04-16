@@ -185,8 +185,8 @@ TextureImporter:
         y: 442
         width: 100
         height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5833334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: block_dmg
       rect:
         serializedVersion: 2
-        x: 120
-        y: 440
-        width: 101
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 121
+        y: 442
+        width: 100
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5833333}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,11 +224,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 232
-        y: 441
+        y: 442
         width: 101
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 60
+      alignment: 9
+      pivot: {x: 0.4950495, y: 0.5833333}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,12 +265,12 @@ TextureImporter:
       name: block_dontDestroy
       rect:
         serializedVersion: 2
-        x: 9
+        x: 10
         y: 374
-        width: 101
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 100
+        height: 60
+      alignment: 9
+      pivot: {x: 0.4950495, y: 0.57377046}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

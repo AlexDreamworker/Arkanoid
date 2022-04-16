@@ -7,11 +7,11 @@ namespace Arkanoid
 	[CreateAssetMenu(fileName = "EditorData", menuName = "EditorData/Create/Data")]
 	public class EditorData : ScriptableObject
 	{
-		public List<EditorBlockData> BlockDatas = new List<EditorBlockData>();
+		public List<EditorBlock> BlockDatas = new List<EditorBlock>();
 	}
 
 	[System.Serializable]
-	public class EditorBlockData 
+	public class EditorBlock 
 	{
 		public Texture2D Texture2D;
 		public BlockData BlockData;

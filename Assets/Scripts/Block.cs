@@ -8,12 +8,16 @@ namespace Arkanoid
 	public class Block : MonoBehaviour
 	{
 		private static int _count = 0;
-		private List<Sprite> _sprites;
-		private int _score;
-		private SpriteRenderer _spriteRenderer;
-		private int _life;
+		[SerializeField] private List<Sprite> _sprites;
+		[SerializeField] private int _score;
+		[SerializeField] private SpriteRenderer _spriteRenderer;
+		[SerializeField] private int _life;
 
-		public void SetData(ColoredBlockData blockData) 
+#if UNITY_EDITOR
+		public BlockData BlockData;
+#endif
+
+		public void SetData(ColoredBlock blockData) 
 		{
 			_sprites = new List<Sprite>(blockData.Sprites);
 			_score = blockData.Score;

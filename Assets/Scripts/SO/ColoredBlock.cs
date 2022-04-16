@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Arkanoid
 {
-	[CreateAssetMenu(fileName = "ColoredBlockData", menuName = "GameData/Create/ColoredBlockData")]
-	public class ColoredBlockData : BlockData
+	[CreateAssetMenu(fileName = "ColoredBlock", menuName = "GameData/Create/ColoredBlock")]
+	public class ColoredBlock : BlockData
 	{
 		public List<Sprite> Sprites;
 		public Color BaseColor;
