@@ -13,13 +13,27 @@ namespace Arkanoid
 			{
 				foreach (var item in allBlocks)
 				{
-#if UNITY_EDITOR
-					DestroyImmediate(item.gameObject);
-#else
-					Destroy(item.gameObject);
-#endif
+					DestroyItem(item.gameObject);
 				}
 			}
+
+			BallMove[] allBalls = FindObjectsOfType<BallMove>();
+			if (allBalls.Length > 0) 
+			{
+				foreach (var item in allBalls)
+				{
+					DestroyItem(item.gameObject);
+				}
+			}
+		}
+
+		private void DestroyItem(GameObject game)
+		{
+#if UNITY_EDITOR
+					DestroyImmediate(game.gameObject);
+#else
+					Destroy(game.gameObject);
+#endif
 		}
 	}
 }

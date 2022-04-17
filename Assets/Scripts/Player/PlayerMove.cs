@@ -41,6 +41,11 @@ namespace Arkanoid
 		{
 			_moveX = moveX;
 		}
+
+		public void ResetPosition() 
+		{
+			_rigidbody2D.position = new Vector2(0f, _rigidbody2D.position.y);
+		}
 	}
 }
 

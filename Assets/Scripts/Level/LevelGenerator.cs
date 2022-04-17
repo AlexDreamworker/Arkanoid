@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Arkanoid
 {
@@ -10,6 +11,8 @@ namespace Arkanoid
 		private readonly BlockGenerator _blockGenerator = new BlockGenerator();
 		[SerializeField] private Transform _parentBlocks;
 		[SerializeField] private ClearLevel _clearLevel;
+		[SerializeField] private GameState _gameState;
+		[SerializeField] private UnityEvent OnGenerated;
 
 		private void Start()
 		{
@@ -25,6 +28,8 @@ namespace Arkanoid
 				_blockGenerator.Generate(gameLevel, _parentBlocks);
 			}			
 			LoadingScreen.Screen.Enable(false);
+			OnGenerated.Invoke();
+			_gameState.SetState(State.Gameplay);
 		}
 
 		public void Generate() 
