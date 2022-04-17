@@ -46,14 +46,15 @@ namespace Arkanoid
 
 		public void SaveLevelData(int index, Progress progress)
 		{
-			if (_levelsProgress == null)
-			{
-				_levelsProgress = GetLevelsProgress();
-			}
-
+			_levelsProgress = GetLevelsProgress();
 			_levelsProgress.Levels[index] = progress;
 			_levelsProgress.Levels[index + 1].IsOpened = true;
 			SaveData();
+		}
+
+		public void Clear()
+		{
+			PlayerPrefs.DeleteKey(KeyName);
 		}
 	}
 }
