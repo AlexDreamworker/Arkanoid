@@ -46,7 +46,7 @@ TextureImporter:
     second: sfx_off
   - first:
       213: 4039828936167149672
-    second: sfx_on
+    second: sfx_off
   - first:
       213: 1823547393629414681
     second: exit
@@ -457,7 +457,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sfx_off
+      name: sfx_on
       rect:
         serializedVersion: 2
         x: 873
@@ -478,11 +478,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sfx_on
+      name: sfx_off
       rect:
         serializedVersion: 2
         x: 873
-        y: 178
+        y: 182
         width: 112
         height: 88
       alignment: 0
