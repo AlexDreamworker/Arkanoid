@@ -9,6 +9,7 @@ namespace Arkanoid
 		private Rigidbody2D _rigidbody2D;
 		private bool _isActive;
 		private const float Force = 300f;
+		[SerializeField] private BallSound _ballSound;
 
 		private void Start()
 		{
@@ -34,6 +35,7 @@ namespace Arkanoid
 				transform.SetParent(null);
 				_rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
 				AddForce();
+				_ballSound.PlaySoundAwake();
 			}
 		}
 

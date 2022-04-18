@@ -7,10 +7,12 @@ namespace Arkanoid
 	public class BallCollisions : MonoBehaviour
 	{
 		[SerializeField] private BallMove _ball;
+		[SerializeField] private BallSound _ballSound;
 		private float _lastPositionX;
 
 		private void OnCollisionEnter2D(Collision2D collision)
 		{
+			_ballSound.PlaySoundCollision();
 			float ballPositionX = transform.position.x;
 
 			if (collision.gameObject.TryGetComponent(out PlayerMove playerMove))
