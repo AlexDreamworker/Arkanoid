@@ -16,6 +16,7 @@ namespace Arkanoid
 
 		private void Start()
 		{
+			_gameState.SetState(State.StopGame);
 			Init();
 		}
 
@@ -28,8 +29,8 @@ namespace Arkanoid
 				_blockGenerator.Generate(gameLevel, _parentBlocks);
 			}			
 			LoadingScreen.Screen.Enable(false);
-			OnGenerated.Invoke();
 			_gameState.SetState(State.Gameplay);
+			OnGenerated.Invoke();
 		}
 
 		public void Generate() 

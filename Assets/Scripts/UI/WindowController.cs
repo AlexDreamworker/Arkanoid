@@ -42,6 +42,24 @@ namespace Arkanoid
 			_endGameWindow.SetActive(false);
 			_pauseWindow.SetActive(false);
 		}
+
+		private void OnEnable()
+		{
+			Block.OnEnded += EndGame;
+		}
+
+		private void OnDisable()
+		{
+			Block.OnEnded -= EndGame;
+		}
+
+		private void EndGame()
+		{
+			if (_gameState.State == State.Gameplay)
+			{
+				_endGameWindow.SetActive(true);
+			}
+		}
 	}
 }
 

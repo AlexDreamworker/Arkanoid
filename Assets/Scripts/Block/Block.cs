@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
@@ -12,6 +12,8 @@ namespace Arkanoid
 		[SerializeField] private int _score;
 		[SerializeField] private SpriteRenderer _spriteRenderer;
 		[SerializeField] private int _life;
+		public static event Action OnEnded;
+		public static event Action<int> OnDestroyed;
 
 		public void SetData(ColoredBlock blockData) 
 		{
@@ -47,9 +49,11 @@ namespace Arkanoid
 		private void OnDisable()
 		{
 			_count--;
+			OnDestroyed?.Invoke(_score);
+
 			if (_count < 1) 
 			{
-				Debug.Log("All Blocks Is Destroyed!");
+				OnEnded?.Invoke();
 			}
 		}
 	}

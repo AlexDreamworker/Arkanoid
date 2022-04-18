@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 127560908}
   - component: {fileID: 127560913}
   - component: {fileID: 127560914}
+  - component: {fileID: 127560915}
   - component: {fileID: 127560912}
   - component: {fileID: 127560911}
   m_Layer: 0
@@ -625,6 +626,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 4729736084864224836, guid: cf5f82c11fca64743a3ea9ad2acdae7d, type: 3}
+--- !u!114 &127560915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127560907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fa119b3f45d9c4290d20b78c7a1af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameState: {fileID: 272319443}
+  OnAllLifeLosted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1832252017}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnLifeLosted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 127560914}
+        m_TargetAssemblyTypeName: Arkanoid.BallCreator, Assembly-CSharp
+        m_MethodName: Create
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 127560913}
+        m_TargetAssemblyTypeName: Arkanoid.PlayerMove, Assembly-CSharp
+        m_MethodName: ResetPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  UiUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1498820485}
+        m_TargetAssemblyTypeName: Arkanoid.IntToText, Assembly-CSharp
+        m_MethodName: SetInt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &145672940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,6 +1445,7 @@ GameObject:
   - component: {fileID: 272319442}
   - component: {fileID: 272319440}
   - component: {fileID: 272319443}
+  - component: {fileID: 272319444}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1449,6 +1521,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 127560915}
+        m_TargetAssemblyTypeName: Arkanoid.PlayerLife, Assembly-CSharp
+        m_MethodName: SetDefault
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 272319444}
+        m_TargetAssemblyTypeName: Arkanoid.ScoreController, Assembly-CSharp
+        m_MethodName: SetDefault
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &272319443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,6 +1557,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf60b44fee414a4a851b8e5d25c4e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &272319444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272319439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033d2a6cbb0c86e4c919562cdb64f543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameState: {fileID: 272319443}
+  UiUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2055564031}
+        m_TargetAssemblyTypeName: Arkanoid.IntToText, Assembly-CSharp
+        m_MethodName: SetInt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &285781043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4995,7 +5119,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1489788686
 RectTransform:
@@ -5045,6 +5169,7 @@ GameObject:
   - component: {fileID: 1498820482}
   - component: {fileID: 1498820484}
   - component: {fileID: 1498820483}
+  - component: {fileID: 1498820485}
   m_Layer: 5
   m_Name: Lifes
   m_TagString: Untagged
@@ -5111,6 +5236,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498820481}
   m_CullTransparentMesh: 1
+--- !u!114 &1498820485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498820481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c85d291b46f034dbfeb1c06bd4fec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1702148251}
 --- !u!1 &1542347074
 GameObject:
   m_ObjectHideFlags: 0
@@ -6305,6 +6443,7 @@ GameObject:
   - component: {fileID: 2055564028}
   - component: {fileID: 2055564030}
   - component: {fileID: 2055564029}
+  - component: {fileID: 2055564031}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -6370,6 +6509,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055564027}
   m_CullTransparentMesh: 1
+--- !u!114 &2055564031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055564027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c85d291b46f034dbfeb1c06bd4fec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1018014290}
 --- !u!1 &2093840734
 GameObject:
   m_ObjectHideFlags: 0
