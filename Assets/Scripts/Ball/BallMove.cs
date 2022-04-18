@@ -37,7 +37,7 @@ namespace Arkanoid
 			}
 		}
 
-		public void AddForce(float direction = 1f) 
+		public void AddForce(float direction = 0f) 
 		{
 			_rigidbody2D.velocity = Vector2.zero;
 			_rigidbody2D.AddForce(new Vector2(direction * (Force / 2), Force));

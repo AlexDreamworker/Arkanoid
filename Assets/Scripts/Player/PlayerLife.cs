@@ -14,6 +14,11 @@ namespace Arkanoid
 		[SerializeField] private UnityEvent OnLifeLosted;
 		[SerializeField] private UnityEventInt UiUpdate;
 
+		public int GetLifeCount()
+		{
+			return _life;
+		}
+
 		public void SetDefault()
 		{
 			_life = MAX_LIFE;

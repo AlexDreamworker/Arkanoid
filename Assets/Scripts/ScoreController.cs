@@ -10,6 +10,11 @@ namespace Arkanoid
 		private int _score;
 		[SerializeField] private UnityEventInt UiUpdate;
 
+		public int GetScore()
+		{
+			return _score;
+		}
+
 		public void SetDefault()
 		{
 			_score = 0;

@@ -48,7 +48,10 @@ namespace Arkanoid
 		{
 			_levelsProgress = GetLevelsProgress();
 			_levelsProgress.Levels[index] = progress;
-			_levelsProgress.Levels[index + 1].IsOpened = true;
+			if (index < _levelsProgress.Levels.Count - 1) 
+			{
+				_levelsProgress.Levels[index + 1].IsOpened = true;
+			}
 			SaveData();
 		}
 

@@ -38,6 +38,23 @@ namespace Arkanoid
 			LoadingScreen.Screen.Enable(true);
 			Init();
 		}
+
+		public void GenerateNext() 
+		{
+			LevelsData levelsData = new LevelsData();
+			int tempIndex = _levelIndex.GetIndex();
+			if (tempIndex < levelsData.GetLevelsProgress().Levels.Count - 1) 
+			{
+				_levelIndex.SetIndex(tempIndex + 1);
+				Generate();
+			}
+			else
+			{
+				Loader loader = new Loader();
+				_gameState.SetState(State.Other);
+				loader.LoadingMainScene(true);
+			}
+		}
 	}
 }
 
