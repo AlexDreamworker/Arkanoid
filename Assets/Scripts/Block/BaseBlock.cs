@@ -5,7 +5,7 @@ namespace Arkanoid
 	public abstract class BaseBlock : MonoBehaviour
 	{
 #if UNITY_EDITOR
-		public BlockData BlockData;
+		[HideInInspector] public BlockData BlockData;
 #endif
 	}
 }

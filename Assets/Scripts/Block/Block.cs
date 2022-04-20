@@ -8,10 +8,15 @@ namespace Arkanoid
 	public class Block : BaseBlock, IDamageable
 	{
 		private static int _count = 0;
-		[SerializeField] private List<Sprite> _sprites;
-		[SerializeField] private int _score;
-		[SerializeField] private SpriteRenderer _spriteRenderer;
-		[SerializeField] private int _life;
+		[HideInInspector] [SerializeField] private List<Sprite> _sprites;
+		[HideInInspector] [SerializeField] private int _score;
+		[HideInInspector] [SerializeField] private SpriteRenderer _spriteRenderer;
+		[HideInInspector] [SerializeField] private int _life;
+
+		[SerializeField] private BoxCollider2D _blockCollider;
+		[SerializeField] private BoxCollider2D _composite;
+		[SerializeField] private ParticleSystem _particleSystem;
+
 		public static event Action OnEnded;
 		public static event Action<int> OnDestroyed;
 
@@ -32,8 +37,9 @@ namespace Arkanoid
 			if (_life < 1) 
 			{
 				_spriteRenderer.enabled = false;
-				GetComponent<BoxCollider2D>().enabled = false;
-				GetComponent<ParticleSystem>().Play();
+				_blockCollider.enabled = false;
+				_composite.enabled = false;
+				_particleSystem.Play();
 			}
 			else 
 			{
