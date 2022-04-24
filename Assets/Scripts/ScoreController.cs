@@ -24,11 +24,13 @@ namespace Arkanoid
 		private void OnEnable()
 		{
 			Block.OnDestroyed += ScoreCollect;
+			Bonus.OnAdded += ScoreCollect;
 		}
 
 		private void OnDisable()
 		{
 			Block.OnDestroyed -= ScoreCollect;
+			Bonus.OnAdded -= ScoreCollect;
 		}
 
 		private void ScoreCollect(int value)

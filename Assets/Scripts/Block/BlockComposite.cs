@@ -16,7 +16,7 @@ namespace Arkanoid
 					if (item.TryGetComponent(out IDamageable damageable))
 					{
 						damageable.ApplyDamage();
-						break; //? Закомментить если хотим нанести урон более чем одному блоку за раз
+						//break; //? Закомментить если хотим нанести урон более чем одному блоку за раз
 					}
 				}
 			}

@@ -13,7 +13,7 @@ TextureImporter:
     second: block_closed
   - first:
       213: -2928666984252303228
-    second: arkanoid_3
+    second: bonus_removeSize
   - first:
       213: -5845688379360328259
     second: block_dontDestroy
@@ -25,7 +25,7 @@ TextureImporter:
     second: ball
   - first:
       213: 5249498311641783508
-    second: arkanoid_7
+    second: bonus_addSize
   - first:
       213: -7111692313393482773
     second: arkanoid_8
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arkanoid_3
+      name: bonus_removeSize
       rect:
         serializedVersion: 2
         x: 400
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arkanoid_7
+      name: bonus_addSize
       rect:
         serializedVersion: 2
         x: 400

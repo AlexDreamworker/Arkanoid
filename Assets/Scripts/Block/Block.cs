@@ -19,6 +19,7 @@ namespace Arkanoid
 
 		public static event Action OnEnded;
 		public static event Action<int> OnDestroyed;
+		public static event Action<Vector2> OnDestroyedPosition;
 
 		public void SetData(ColoredBlock blockData) 
 		{
@@ -39,6 +40,7 @@ namespace Arkanoid
 				_spriteRenderer.enabled = false;
 				_blockCollider.enabled = false;
 				_composite.enabled = false;
+				OnDestroyedPosition?.Invoke(transform.position);
 				_particleSystem.Play();
 			}
 			else 

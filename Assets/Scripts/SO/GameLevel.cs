@@ -8,6 +8,7 @@ namespace Arkanoid
 	public class GameLevel : ScriptableObject
 	{
 		public List<BlockObject> Blocks = new List<BlockObject>();
+		public List<BonusAttach> Bonuses = new List<BonusAttach>();
 	}
 
 	[System.Serializable]

@@ -25,6 +25,15 @@ namespace Arkanoid
 					DestroyItem(item.gameObject);
 				}
 			}
+
+			Bonus[] bonuses = FindObjectsOfType<Bonus>();
+			if (bonuses.Length > 0) 
+			{
+				foreach (var item in bonuses)
+				{
+					item.StopAndRemove();
+				}
+			}
 		}
 
 		private void DestroyItem(GameObject game)
