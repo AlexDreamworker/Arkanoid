@@ -14,11 +14,14 @@ namespace Arkanoid
 		public static event Action<int> OnAdded;
 
 		public abstract void Apply();
-		protected abstract void Remove();
+		//protected abstract void Remove();
 
 		public void StopAndRemove()
 		{
-			Remove();
+			if (TryGetComponent(out IRemovable removable))
+			{
+				removable.Remove();
+			}
 			Destroy(gameObject);
 		}
 
@@ -36,8 +39,7 @@ namespace Arkanoid
 				_currentTime -= TimeStep;
 				yield return new WaitForSeconds(TimeStep);
 			}
-			Remove();
-			Destroy(gameObject);
+			StopAndRemove();
 		}
 	}
 }

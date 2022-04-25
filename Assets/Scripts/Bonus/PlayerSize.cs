@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Arkanoid
 {
-    public class PlayerSize : Bonus
+    public class PlayerSize : Bonus, IRemovable
     {
         [SerializeField] private bool _negative;
         private const float Size = 0.5f;
@@ -15,7 +15,7 @@ namespace Arkanoid
             SetSize(_negative ? -Size : Size);
         }
 
-        protected override void Remove()
+        public void Remove()
         {
             SetSize(_negative ? Size : -Size);
         }

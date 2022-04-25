@@ -28,13 +28,13 @@ TextureImporter:
     second: bonus_addSize
   - first:
       213: -7111692313393482773
-    second: arkanoid_8
+    second: bonus_addBall
   - first:
       213: -1617317057832360152
     second: angle
   - first:
       213: -817595986861207618
-    second: arkanoid_10
+    second: bonus_field
   - first:
       213: -7364001584217911219
     second: wall
@@ -43,7 +43,7 @@ TextureImporter:
     second: background1
   - first:
       213: 1513543941504470989
-    second: arkanoid_13
+    second: bonus_weapon
   - first:
       213: -4595410811654634724
     second: background2
@@ -53,6 +53,9 @@ TextureImporter:
   - first:
       213: 9079211735607611507
     second: ufo
+  - first:
+      213: -8720255360543108540
+    second: field
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -346,7 +349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arkanoid_8
+      name: bonus_addBall
       rect:
         serializedVersion: 2
         x: 400
@@ -388,7 +391,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arkanoid_10
+      name: bonus_field
       rect:
         serializedVersion: 2
         x: 400
@@ -451,7 +454,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arkanoid_13
+      name: bonus_weapon
       rect:
         serializedVersion: 2
         x: 400
@@ -530,6 +533,27 @@ TextureImporter:
       bones: []
       spriteID: 370137548f6dffd70800000000000000
       internalID: 9079211735607611507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: field
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 7
+        width: 20
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 30, z: 0, w: 30}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442d12493fd6bf680800000000000000
+      internalID: -8720255360543108540
       vertices: []
       indices: 
       edges: []

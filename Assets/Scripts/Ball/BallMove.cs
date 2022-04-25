@@ -6,19 +6,14 @@ namespace Arkanoid
 {
 	public class BallMove : MonoBehaviour
 	{
-		private Rigidbody2D _rigidbody2D;
+		[SerializeField] private Rigidbody2D _rigidbody2D;
 		private bool _isActive;
 		private const float Force = 300f;
 		[SerializeField] private BallSound _ballSound;
 
-		private void Start()
-		{
-			_rigidbody2D = GetComponent<Rigidbody2D>();
-			_rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
-		}
-
 		private void OnEnable()
 		{
+			_rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
 			PlayerInput.OnClicked += BallActivate;
 		}
 
@@ -43,6 +38,14 @@ namespace Arkanoid
 		{
 			_rigidbody2D.velocity = Vector2.zero;
 			_rigidbody2D.AddForce(new Vector2(direction * (Force / 2), Force));
+		}
+
+		public void StartClone(float direction) 
+		{
+			_isActive = true;
+			_rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+			AddForce(direction);
+			_ballSound.PlaySoundAwake();
 		}
 	}
 }

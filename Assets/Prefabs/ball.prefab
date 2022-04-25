@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5215b273cbdfd409726d56896357c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 4729736084864224837}
   _ballSound: {fileID: 3499340405352426977}
 --- !u!114 &-4934207721290681624
 MonoBehaviour:
