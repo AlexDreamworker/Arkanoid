@@ -34,6 +34,15 @@ namespace Arkanoid
 					item.StopAndRemove();
 				}
 			}
+
+			Bullet[] bullets = FindObjectsOfType<Bullet>();
+			if (bullets.Length > 0)
+			{
+				foreach (var item in bullets)
+				{
+					item.gameObject.SetActive(false);
+				}
+			}
 		}
 
 		private void DestroyItem(GameObject game)

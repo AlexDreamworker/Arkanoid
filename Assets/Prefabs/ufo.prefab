@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2004779192485810349}
   - component: {fileID: 2004779192485810350}
   - component: {fileID: 2004779192485810351}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ufo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004779192485810336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.03, y: -2.51, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 9079211735607611507, guid: 0d0e9c5cfe0e16e459cc2e1a8eda6381, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c7096e2ade23448b9355bc05749ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 2004779192485810347}
+  _boxCollider2D: {fileID: 2004779192485810351}
+  _particleSystem: {fileID: 2004779192485810349}
 --- !u!198 &2004779192485810349
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -108,7 +111,7 @@ ParticleSystem:
   serializedVersion: 7
   lengthInSec: 0.5
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 1
   cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}

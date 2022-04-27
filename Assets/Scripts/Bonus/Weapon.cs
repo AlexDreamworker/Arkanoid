@@ -6,9 +6,7 @@ namespace Arkanoid
 {
     public class Weapon : Bonus
     {
-		[SerializeField] private GameObject _bullet;
-		private readonly List<GameObject> _bullets = new List<GameObject>();
-		private const int AmountToPool = 20;
+		private ObjectPool _bulletsPool;
 		private const float OffsetY = 0.5f;
 		private const float OffsetX = 0.5f;
 		
@@ -20,31 +18,18 @@ namespace Arkanoid
 
 		private void OnEnable()
 		{
-			CreatePool();
-		}
-
-		private void CreatePool()
-		{
-			_bullets.Clear();
-			GameObject temp;
-			for (var i = 0; i < AmountToPool; i++)
+			if (_bulletsPool == null)
 			{
-				temp = Instantiate(_bullet);
-				_bullet.SetActive(false);
-				_bullets.Add(temp);
-			}
-		}
-
-		private GameObject GetBullet() 
-		{
-			for (int i = 0; i < _bullets.Count; i++)
-			{
-				if (!_bullets[i].activeInHierarchy)
+				ObjectPool[] objectPools = FindObjectsOfType<ObjectPool>();
+				for (int i = 0; i < objectPools.Length; i++)
 				{
-					return _bullets[i];
+					if (objectPools[i].gameObject.CompareTag("BulletsPool"))
+					{
+						_bulletsPool = objectPools[i];
+						break;
+					}
 				}
 			}
-			return null;
 		}
 
 		private IEnumerator StartShoot() 
@@ -59,7 +44,7 @@ namespace Arkanoid
 
 		private void ActiveBullet(float offsetX) 
 		{
-			GameObject bullet = GetBullet();
+			GameObject bullet = _bulletsPool.GetObject();
 			if (bullet != null) 
 			{
 				bullet.transform.position = new Vector2(transform.position.x + offsetX, transform.position.y + OffsetY);

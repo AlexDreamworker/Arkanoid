@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Arkanoid
 {
 	public class ScoreController : MonoBehaviour
 	{
 		[SerializeField] private GameState _gameState;
-		private int _score;
 		[SerializeField] private UnityEventInt UiUpdate;
+		[SerializeField] private UnityEvent ThousandCollected;
+		private const int ScoreToNextBonus = 1000;
+		private int _score;
 
 		public int GetScore()
 		{
@@ -25,12 +28,14 @@ namespace Arkanoid
 		{
 			Block.OnDestroyed += ScoreCollect;
 			Bonus.OnAdded += ScoreCollect;
+			Ufo.OnDestroyed += ScoreCollect;
 		}
 
 		private void OnDisable()
 		{
 			Block.OnDestroyed -= ScoreCollect;
 			Bonus.OnAdded -= ScoreCollect;
+			Ufo.OnDestroyed -= ScoreCollect;
 		}
 
 		private void ScoreCollect(int value)
@@ -39,6 +44,10 @@ namespace Arkanoid
 			{
 				_score += value;
 				UiUpdate.Invoke(_score);
+				if (_score % ScoreToNextBonus == 0)
+				{
+					ThousandCollected.Invoke();
+				}
 			}
 		}
 	}

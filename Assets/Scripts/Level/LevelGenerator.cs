@@ -13,6 +13,8 @@ namespace Arkanoid
 		[SerializeField] private ClearLevel _clearLevel;
 		[SerializeField] private GameState _gameState;
 		[SerializeField] private UnityEvent OnGenerated;
+		[Space]
+		[SerializeField] private SpriteRenderer _background;
 
 		private void Start()
 		{
@@ -27,6 +29,7 @@ namespace Arkanoid
 			if (gameLevel != null) 
 			{
 				_blockGenerator.Generate(gameLevel, _parentBlocks);
+				_background.sprite = gameLevel.Background;
 			}			
 			LoadingScreen.Screen.Enable(false);
 			_gameState.SetState(State.Gameplay);
